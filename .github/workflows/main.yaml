@@ -1,0 +1,16 @@
+on:
+  workflow_dispatch:
+  push:
+name: Build and deploy site to GitHub pages
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/head/main'
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: build_and_deploy
+        uses: shalzz/zola-deploy-action@master
+        env:
+          PAGES_BRANCH: gh-pages
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
