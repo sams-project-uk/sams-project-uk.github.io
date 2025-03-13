@@ -9,6 +9,7 @@ Due to the nature of the theme being present as a submodule, this repository sho
 ## Adding content
 
 Textual content can be added by modifying the markdown files in the `/content` directory. The commands in the `Makefile` can be used to test the setup locally. By default, this uses a Docker configuration to source Zola, but if you have a local installation then the `LocalZola.config` setup can be used by adjusting the commented lines in the Makefile.
+Using `make build` will then build the website for local viewing, and `make serve` will serve a copy of it accessible in your browser at `https://localhost:8080/`.
 
 ## Logo
 
