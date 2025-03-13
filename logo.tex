@@ -1,0 +1,85 @@
+% https://tex.stackexchange.com/a/51766
+\documentclass[tikz,convert={outext=.svg,command=\unexpanded{pdf2svg \infile\space\outfile}}]{standalone}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz-3dplot}
+\usepackage{sourcesanspro}
+\usepackage{sourceserifpro}
+\begin{document}
+  \tdplotsetmaincoords{75}{60}
+
+% % https://tex.stackexchange.com/a/29342
+
+\begin{tikzpicture}[scale=4, tdplot_main_coords]
+    \coordinate (O) at (0,0,0);
+
+    % Define the cube's key properties
+    \def\Radius{1.414213}   % Radius of point P in spherical coords
+    \def\Theta{54.68636}    % Angle from z-axis
+    \def\Phi{45}           % Rotation around the z-axis
+    \def\FaceRatio{0.3}    % Adjustable depth for intermediate face
+    \def\SpotCentreX{0.34}
+    \def\SpotCentreY{0.23}
+
+    % Define P using spherical coordinates
+    \tdplotsetcoord{P}{\Radius}{\Theta}{\Phi}
+
+    % Convert spherical coordinates to Cartesian (Px, Py, Pz)
+    \pgfmathsetmacro{\Px}{\Radius * cos(\Phi)}
+    \pgfmathsetmacro{\PFaceX}{\FaceRatio * \Px}  % Compute face position
+
+    % Compute the intermediate face coordinates
+    \coordinate (PFace) at ($(O)!\FaceRatio!(Px)$);
+    \coordinate (PFaceY) at ($(Py)!\FaceRatio!(Pxy)$);
+    \coordinate (PFaceYZ) at ($(Pyz)!\FaceRatio!(P)$);
+    \coordinate (PFaceZ) at ($(Pz)!\FaceRatio!(Pxz)$);
+
+    % Back part of field lines
+    \foreach \i in {0, 45, 90, 135, 180, 225, 270, 315} {
+        \draw[thick, red!55]
+            ( 0.0, {\SpotCentreX + 0.03*cos(\i)}, {\SpotCentreY + 0.03*sin(\i)} )
+            .. controls ({0.5 * \PFaceX}, {\SpotCentreX + 0.05*cos(\i)}, {\SpotCentreY + 0.05*sin(\i)}) ..
+            ( \PFaceX, {\SpotCentreX + 0.05*cos(\i)}, {\SpotCentreY + 0.05*sin(\i)} );
+      }
+
+    % Draw cube
+    \draw[black!60] (O) -- (Py) -- (Pyz) -- (Pz) -- cycle;
+    \draw[black!60] (O) -- (Px) -- (Pxy) -- (Py) -- cycle;
+    \draw[black!60] (O) -- (Px) -- (Pxz) -- (Pz) -- cycle;
+    \draw[black!60] (Py) -- (Pxy) -- (P) -- (Pyz) -- cycle;
+
+    % Draw the intermediate face
+    \fill[Goldenrod!70, opacity=0.8] (PFace) -- (PFaceY) -- (PFaceYZ) -- (PFaceZ) -- cycle;
+    \draw[black] (PFace) -- (PFaceY) -- (PFaceYZ) -- (PFaceZ) -- cycle;
+
+    % Draw umbra & penumbra on the face
+    \begin{scope}[canvas is yz plane at x=\PFaceX]
+        \fill[brown!40, opacity=0.8] plot[smooth cycle, tension=0.8] coordinates {
+            (0.25,0.3) (0.38,0.4) (0.5,0.32) (0.45,0.2) (0.35,0.1) (0.22,0.15)
+        };
+        \fill[brown!90, opacity=0.8] plot[smooth cycle, tension=0.7] coordinates {
+            (0.3,0.28) (0.4,0.34) (0.42,0.26) (0.38,0.18) (0.28,0.17)
+        };
+    \end{scope}
+
+    % front part of field lines
+    \foreach \i in {0, 45, 90, 135, 180, 225, 270, 315} {
+        \draw[thick, red!55]
+            ( \PFaceX, {\SpotCentreX + 0.06*cos(\i)}, {\SpotCentreY + 0.06*sin(\i)} )
+            .. controls ({0.5 * \Px}, {\SpotCentreX + 0.09*cos(\i)}, {\SpotCentreY + 0.09*sin(\i)}) ..
+            ( \Px, {\SpotCentreX + 0.12*cos(\i)}, {\SpotCentreY + 0.12*sin(\i)} );
+      }
+
+    % front part of cube
+    \draw[black!60] (Pz) -- (Pyz) -- (P) -- (Pxz) -- cycle;
+    \draw[black!60] (Px) -- (Pxy) -- (P) -- (Pxz) -- cycle;
+
+
+    \begin{scope}[canvas is yz plane at x=\PFaceX]
+        \node[anchor=center, MidnightBlue!90] at (0.7, 0.6) {S};
+        \node[anchor=center, MidnightBlue!90] at (0.7, 0.49) {A};
+        \node[anchor=center, MidnightBlue!90] at (0.7, 0.37) {M};
+        \node[anchor=center, MidnightBlue!90] at (0.7, 0.25) {S};
+    \end{scope}
+
+\end{tikzpicture}
+\end{document}

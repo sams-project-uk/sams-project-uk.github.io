@@ -1,0 +1,48 @@
+{% import "_macros.html" as macros %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ section.title }} | {{ config.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block favicon %}
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    {% endblock favicon %}
+    {% include "_variables.html" %}
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="{{ get_url(path="juice.css") }}">
+    <link rel="stylesheet" href="{{ get_url(path="sams.css") }}">
+</head>
+
+<body>
+    <header class="box-shadow">
+        {{ macros::render_header() }}
+    </header>
+
+    <main class="list-page-main">
+        <div class="content text">
+            <div class="heading-text">{{ section.title }}</div>
+            <p>{{ section.description }}</p>
+            <div class="post-list">
+            {% for page in section.pages %}
+                <a class="post-item" href="{{ page.permalink | safe }}">
+                    <span>{{ page.title }}</span>
+                    <span>{{ page.date }}</span>
+                </a>
+                <p class="post-description">{{ page.description }}</p>
+            {% else %}
+                {% if section.extra.empty_text is defined %}
+                <p>{{ section.extra.empty_text }}</p>
+                {% else %}
+                    <p>There is currently no content here. Please check back soon.</p>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+    </main>
+
+    {% include "_footer.html" %}
+</body>

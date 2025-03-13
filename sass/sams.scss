@@ -1,0 +1,24 @@
+@media screen and (max-width: 768px) {
+    .text-center {
+        text-align: left;
+    }
+}
+
+.post-list {
+    margin: 0;
+}
+
+.post-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 0px;
+}
+
+.post-description {
+    margin: 2px auto 1rem auto;
+}
+
+.list-page-main {
+    flex-direction: column;
+}

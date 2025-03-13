@@ -1,0 +1,48 @@
+{% extends "juice/templates/index.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ get_url(path="sams.css") }}">
+{% endblock head %}
+
+{% block hero %}
+    <section class="text-center", style="max-width: 50%;">
+        <h1 class="heading-text" style="font-size: 2rem">
+        The Solar Atmospheric Modelling Suite
+        </h1>
+        <h3 class="title-text">
+            <b>SAMS</b> is an STFC Large Award starting in 2025 working to provide <i>open</i> modelling of the solar atmosphere at unprecedented detail.
+        </h3>
+    </section>
+    <img class="hero-image" style="width: 50%" src="{{ get_url(path="logo.svg") }}">
+
+    <div class="explore-more text"
+        onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
+        Explore More ⇩
+    </div>
+    <style>
+        .hero section {
+            padding: 0 5rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero section {
+                padding: 0 2rem;
+            }
+
+            .hero-image {
+                display: none
+            }
+        }
+    </style>
+{% endblock hero %}
+
+{% block content %}
+<div id="features" class="heading-text">{{ section.description }}</div>
+{{ section.content | safe }}
+{% endblock content %}
+
+{% block sidebar %}
+{% endblock sidebar %}
+
+{% block footer %}
+{% include "_footer.html" %}
+{% endblock footer %}
