@@ -1,6 +1,6 @@
 +++
 title = "SAMS Research Associate - University of Cambridge"
-description = "Post Doctoral Research and Innovation Associate (Fixed Term) in Atomic Physics Modelling - Closes: 2025-09-01"
+description = "Post Doctoral Research and Innovation Associate in Atomic Physics Modelling - Closes: 2025-09-01"
 date = 2025-07-14
 +++
 
