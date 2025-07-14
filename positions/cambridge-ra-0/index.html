@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SAMS Research Associate - University of Cambridge | The SAMS Project </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+<link rel="icon" href="/favicon.png" sizes="32x32">
+<link rel="icon" href="/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+
+
+    <style>
+    :root {
+        /* Primary theme color */
+        --primary-color: #FEE27B;
+        /* Primary theme text color */
+        --primary-text-color: #5F634F;
+        --primary-text-color-over: #000;
+        /* Primary theme link color */
+        --primary-link-color: #9BC4CB;
+        /* Secondary color: the background body color */
+        --secondary-color: #fcfaf6;
+        --secondary-text-color: #4C4F40;
+        /* Highlight text color of table of content */
+        --toc-highlight-text-color: #FFBF52;
+        --toc-background-color: white;
+        --code-color: #4a4a4a;
+        --code-background-color: white;
+
+        --shadow-color: #ddd;
+
+        /* Font used for headers (h1 & h2) */
+        --header-font-family: "Fira Sans", sans-serif;
+        /* Font used for text */
+        --text-font-family: "Fira Sans", sans-serif;
+    }
+</style>
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="https://sams-project-uk.github.io/juice.css">
+    
+<link rel="stylesheet" href="https://sams-project-uk.github.io/sams.css">
+
+</head>
+
+<body>
+    
+<header class="box-shadow">
+    
+
+<a href="https://sams-project-uk.github.io/">
+    <div class="logo">
+        <img src="https://sams-project-uk.github.io/logo.svg" alt="logo">
+        SAMS
+    </div>
+</a>
+
+<nav>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;sams-project-uk.github.io&#x2F;about&#x2F;">About</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;sams-project-uk.github.io&#x2F;positions&#x2F;">Positions</a>
+    <a class="nav-item subtitle-text" href="https://github.com/sams-project-uk">Github</a>
+</nav>
+
+</header>
+
+
+    <main>
+        
+        
+        
+        
+
+        <div class="content text">
+            
+<div class="heading-text">Post Doctoral Research and Innovation Associate in Atomic Physics Modelling - Closes: 2025-09-01</div>
+<p>Applications are invited for a Research and Innovation Associate in the atomic astrophysics group, Department of Applied Mathematics and Theoretical Physics, University of Cambridge. The successful candidate will work with Professor Giulio Del Zanna on producing advanced atomic models.</p>
+<p>This post offers an excellent opportunity to contribute to a high-profile project focused on the development of the Solar Atmospheric Modelling Suite (SAMS) a next-generation, modular simulation framework for the solar atmosphere, tackling the chromosphere/corona problem. SAMS is being designed to incorporate world-leading physics capabilities and enable time-dependent, non-LTE radiative transfer magnetohydrodynamic (MHD) simulations. The framework will be released as open-source software, with a strong emphasis on accessibility, flexibility, scalability, and scientific rigour.</p>
+<p>Funded by STFC for five years, SAMS brings together researchers from the Universities of Exeter, Warwick, Cambridge, and Sheffield. The codes will enable the full exploitation of next-generation observations using Exascale computing, i.e. leading the research in solar/stellar physics for many years to come.</p>
+<p>We are seeking a highly motivated Research and Innovation Associate to join this ambitious project. You should hold a PhD in a relevant field such as applied/pure mathematics or physics and have an established track record of original research and experience of working collaboratively. You will join the SAMS consortium and the internationally renowned atomic astrophysics group at DAMTP, providing atomic data to the world-wide community.</p>
+<p>Previous experience in atomic physics/modelling is desirable, as well as knowledge of IDL/Python/FORTRAN/C++ programming.</p>
+<p>Further information about the Astrophysics Group can be found at <a href="http://damtp.cam.ac.uk/research/astro/">http://damtp.cam.ac.uk/research/astro/</a></p>
+<p>Fixed term: The appointment is initially for one year, extendable on a yearly basis following the assessment of the consortium.</p>
+<p>Informal enquiries are welcomes and should be directed to Professor Giulio Del Zanna at <a href="mailto:gd232@cam.ac.uk">gd232@cam.ac.uk</a></p>
+<p>The application deadline is September 1, 2025</p>
+<p>Application link: <a href="https://www.jobs.cam.ac.uk/job/51994/">https://www.jobs.cam.ac.uk/job/51994/</a></p>
+
+
+        </div>
+
+        
+
+    </main>
+
+    
+<footer>
+    <small class="subtext">
+        © SAMS 2025, built using <a href="https://www.getzola.org/">Zola</a> and based on the <a href="https://juice.huhu.io">Juice</a> template.
+    </small>
+</footer>
+
+</body>
+<script>
+    const scrollHandler = entries => {
+        // Find the first entry which intersecting and ratio > 0.9 to highlight.
+        let entry = entries.find(entry => {
+            return entry.isIntersecting && entry.intersectionRatio > 0.9;
+        });
+        if (!entry) return;
+
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+
+        // let url = new URL(`#${entry.target.id}`);
+        let link = document.querySelector(`.toc a[href$="${decodeURIComponent(`#${entry.target.id}`)}"]`)
+        if (link) {
+            link.classList.add("active");
+            link.scrollIntoView({ behavior: "auto", block: "nearest" });
+        }
+    };
+    // Set -100px root margin to improve highlight experience.
+    const observer = new IntersectionObserver(scrollHandler, { threshold: 1 });
+    let items = document.querySelectorAll('h1,h2,h3,h4,h5,h6');
+    items.forEach(item => observer.observe(item));
+</script>
+
+</html>

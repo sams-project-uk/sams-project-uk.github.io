@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://sams-project-uk.github.io/</loc>
+    </url>
+    <url>
+        <loc>https://sams-project-uk.github.io/about/</loc>
+    </url>
+    <url>
+        <loc>https://sams-project-uk.github.io/blog/</loc>
+    </url>
+    <url>
+        <loc>https://sams-project-uk.github.io/blog/post1/</loc>
+        <lastmod>2025-03-13</lastmod>
+    </url>
+    <url>
+        <loc>https://sams-project-uk.github.io/blog/post2/</loc>
+        <lastmod>2025-03-15</lastmod>
+    </url>
+    <url>
+        <loc>https://sams-project-uk.github.io/positions/</loc>
+    </url>
+    <url>
+        <loc>https://sams-project-uk.github.io/positions/cambridge-ra-0/</loc>
+        <lastmod>2025-07-14</lastmod>
+    </url>
+</urlset>
